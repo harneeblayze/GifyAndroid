@@ -42,6 +42,7 @@ class GifyDetailFragment : Fragment() {
 
         binding.apply {
             imgGifyDetail.loadGif(url, getProgressDrawable(requireContext()))
+            tvGifTitle.text = title?:"This Gif Has No Title"
         }
 
         //sivGifImage.loadGif(gifModel?.images?.downsized_medium?.url)

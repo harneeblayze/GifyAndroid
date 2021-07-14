@@ -1,5 +1,7 @@
 package com.gify.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class GifyRemoteModel(
     val data: List<GifModel>,
     val pagination: Pagination
@@ -9,7 +11,8 @@ data class GifModel(
     val type: String,
     val id: String,
     val url: String,
-    val bitly_gif_url: String,
+    @SerializedName("bitly_gif_url")
+    val bitlyGifUrl: String,
     val bitlyURL: String,
     val title: String,
     val images: Images
@@ -22,7 +25,8 @@ data class Pagination (
 )
 
 data class Images(
-    val downsized_medium: DownsizedMedium
+    @SerializedName("downsized_medium")
+    val downsizedMedium: DownsizedMedium
 )
 
 data class DownsizedMedium(

@@ -1,6 +1,7 @@
 package com.gify.core.utils
 
 import android.content.Context
+import android.graphics.ColorFilter
 import android.widget.ImageView
 import android.widget.SearchView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable

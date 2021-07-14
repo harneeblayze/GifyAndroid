@@ -14,7 +14,7 @@ class GifyViewHolder(
 ) : RecyclerView.ViewHolder(binding.root){
     fun bindTo(gifModel: GifModel?){
         binding.apply {
-            sivGifImage.loadGif(gifModel?.images?.downsized_medium?.url, getProgressDrawable(context))
+            sivGifImage.loadGif(gifModel?.images?.downsizedMedium?.url, getProgressDrawable(context))
             tvGifName.text = gifModel?.title
 
         }

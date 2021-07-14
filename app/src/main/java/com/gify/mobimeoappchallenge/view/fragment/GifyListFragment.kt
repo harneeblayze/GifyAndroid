@@ -42,7 +42,7 @@ class GifyListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentGifyListBinding.inflate(inflater, container, false)
         gifAdapter = GifyPagingAdapter {
-            findNavController().navigate(GifyListFragmentDirections.actionGifyListFragmentToGifyDetailFragment(it?.images?.downsized_medium?.url, it?.title))
+            findNavController().navigate(GifyListFragmentDirections.actionGifyListFragmentToGifyDetailFragment(it?.images?.downsizedMedium?.url, it?.title))
         }
 
         return  binding.root

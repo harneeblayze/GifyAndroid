@@ -63,10 +63,6 @@ dependencies {
     implementation Libraries.livedata
     implementation Libraries.lottie
     implementation Libraries.legacySupport
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt Libraries.hiltCompiler
     implementation Libraries.navigationFragmentKtx
     implementation Libraries.navigationUiKtx

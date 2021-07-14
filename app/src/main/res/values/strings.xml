@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retry">Retry</string>
     <string name="empty_state_text">Save Astronaut by Searching for a Gif</string>
+    <string name="title_of_gif">Title of Gif:</string>
 </resources>
