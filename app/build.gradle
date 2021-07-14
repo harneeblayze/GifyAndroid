@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.secrets_gradle_plugin' version '0.4'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.gify.mobimeoappchallenge"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(":core")
+    implementation Libraries.kotlinStdLib
+    implementation Libraries.ktxCore
+    implementation  Libraries.appCompat
+    implementation Libraries.designLibary
+    implementation Libraries.coroutinesAndroid
+    implementation Libraries.coroutinesCore
+    implementation Libraries.moshi
+    implementation Libraries.moshiConverter
+    implementation Libraries.constraintLayout
+    implementation Libraries.daggerHilt
+    implementation Libraries.coroutinesAndroid
+    implementation Libraries.coroutinesCore
+    implementation Libraries.paging
+    implementation Libraries.paging3
+    implementation Libraries.viewmodel
+    implementation Libraries.lifecycle
+    implementation Libraries.livedata
+    implementation Libraries.lottie
+    implementation Libraries.legacySupport
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt Libraries.hiltCompiler
+    implementation Libraries.navigationFragmentKtx
+    implementation Libraries.navigationUiKtx
+    testImplementation TestLibraries.junit4
+    androidTestImplementation TestLibraries.testUnitExt
+    androidTestImplementation TestLibraries.espresso
+}

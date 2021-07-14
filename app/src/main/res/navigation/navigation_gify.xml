@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_gify"
+    app:startDestination="@id/gifyListFragment">
+    <fragment
+        android:id="@+id/gifyListFragment"
+        android:name="com.gify.mobimeoappchallenge.view.fragment.GifyListFragment"
+        android:label="fragment_gify_list"
+        tools:layout="@layout/fragment_gify_list" >
+        <action
+            android:id="@+id/action_gifyListFragment_to_gifyDetailFragment"
+            app:destination="@id/gifyDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/gifyDetailFragment"
+        android:name="com.gify.mobimeoappchallenge.view.fragment.GifyDetailFragment"
+        android:label="fragment_gify_detail"
+        tools:layout="@layout/fragment_gify_detail" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

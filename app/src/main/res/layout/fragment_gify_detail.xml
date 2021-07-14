@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.fragment.GifyDetailFragment">
+
+    <ImageView
+        android:id="@+id/img_gify_detail"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:minHeight="300dp"
+        tools:src="@drawable/ic_launcher_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+
+</LinearLayout>
