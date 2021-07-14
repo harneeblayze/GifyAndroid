@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/gifyListFragment"
         android:name="com.gify.mobimeoappchallenge.view.fragment.GifyListFragment"
-        android:label="fragment_gify_list"
-        tools:layout="@layout/fragment_gify_list" >
+        android:label="Browse Gif List"
+        tools:layout="@layout/fragment_gify_list">
         <action
             android:id="@+id/action_gifyListFragment_to_gifyDetailFragment"
             app:destination="@id/gifyDetailFragment"
@@ -18,8 +18,8 @@
     <fragment
         android:id="@+id/gifyDetailFragment"
         android:name="com.gify.mobimeoappchallenge.view.fragment.GifyDetailFragment"
-        android:label="fragment_gify_detail"
-        tools:layout="@layout/fragment_gify_detail" >
+        android:label="Gif Detail"
+        tools:layout="@layout/fragment_gify_detail">
         <argument
             android:name="url"
             app:argType="string"

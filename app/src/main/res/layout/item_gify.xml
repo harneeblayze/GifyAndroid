@@ -32,7 +32,7 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/dimen_12sp"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             android:textAlignment="center"

@@ -16,6 +16,7 @@ object Libraries{
         const val retrofit = "2.9.0"
         const val interceptor = "3.12.1"
         const val hilt = "2.35"
+        const val palette = "28.0.0"
         const val coroutines_lifecycle = "2.4.0-alpha01"
         const val okHttp = "3.12.1"
         const val moshi = "1.9.3"
@@ -56,6 +57,7 @@ object Libraries{
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    const val supportPalette = "com.android.support:palette-v7${Versions.palette}"
 
 }
 

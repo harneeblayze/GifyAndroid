@@ -39,6 +39,8 @@ dependencies {
     implementation Libraries.ktxCore
     implementation Libraries.appCompat
     implementation Libraries.designLibary
+    implementation Libraries.legacySupport
+    implementation Libraries.constraintLayout
     implementation Libraries.coroutinesAndroid
     implementation Libraries.coroutinesCore
     implementation Libraries.glide

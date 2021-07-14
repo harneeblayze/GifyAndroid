@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.gify.core.utils.getProgressDrawable
 import com.gify.core.utils.loadGif
 import com.gify.mobimeoappchallenge.R
 import com.gify.mobimeoappchallenge.databinding.FragmentGifyDetailBinding
@@ -40,7 +41,7 @@ class GifyDetailFragment : Fragment() {
         val url = arguments?.getString("url")
 
         binding.apply {
-            imgGifyDetail.loadGif(url)
+            imgGifyDetail.loadGif(url, getProgressDrawable(requireContext()))
         }
 
         //sivGifImage.loadGif(gifModel?.images?.downsized_medium?.url)

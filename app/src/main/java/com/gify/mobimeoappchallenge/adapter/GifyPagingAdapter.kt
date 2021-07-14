@@ -16,7 +16,7 @@ class GifyPagingAdapter(private val callback:(GifModel?)-> Unit): PagingDataAdap
 
         val binding = ItemGifyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return GifyViewHolder(binding, callback)
+        return GifyViewHolder(binding, callback, parent.context)
 
 
     }

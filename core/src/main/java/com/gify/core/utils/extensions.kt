@@ -1,15 +1,30 @@
 package com.gify.core.utils
 
+import android.content.Context
 import android.widget.ImageView
 import android.widget.SearchView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-fun ImageView.loadGif(url:String?) {
+
+
+fun getProgressDrawable(context: Context): CircularProgressDrawable {
+    return CircularProgressDrawable(context).apply {
+        strokeWidth = 10f
+        centerRadius = 60f
+        start()
+
+    }
+
+}
+
+fun ImageView.loadGif(url:String?, progressDrawable: CircularProgressDrawable) {
     Glide.with(this)
         .asGif()
         .load(url)
+        .placeholder(progressDrawable)
         .into(this)
 }
 
