@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".view.fragment.GifyDetailFragment">
+
+    <ImageView
+        android:layout_margin="@dimen/dimen_14dp"
+        android:src="@drawable/small_anchor_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <ImageView
         android:id="@+id/img_gify_detail"
@@ -15,11 +22,30 @@
         android:minHeight="@dimen/dimen_300dp"
         tools:src="@drawable/ic_launcher_foreground" />
 
-    <androidx.cardview.widget.CardView
+    <ImageView
+        android:layout_margin="@dimen/dimen_8dp"
+        android:src="@drawable/small_anchor_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_gif_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8dp"
+        android:gravity="center"
+        android:textSize="@dimen/dimen_16sp"
+        android:textStyle="bold"
+        tools:text="" />
+
+
+
+
+    <!--<androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
-        android:backgroundTint="@color/darkblue"
+        android:backgroundTint="@color/primaryLight"
         android:elevation="@dimen/dimen_7dp"
         tool:cardCornerRadius="@dimen/dimen_20dp"
         tool:cardElevation="@dimen/dimen_5dp">
@@ -39,21 +65,12 @@
                 android:textSize="@dimen/dimen_32sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_gif_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_8dp"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dimen_16sp"
-                android:textStyle="bold"
-                tools:text="" />
+
 
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
+-->
 
 </LinearLayout>
