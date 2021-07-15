@@ -10,6 +10,7 @@
     <ImageView
         android:id="@+id/img_gify_detail"
         android:layout_width="match_parent"
+        android:scaleType="centerCrop"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/dimen_300dp"
         tools:src="@drawable/ic_launcher_foreground" />
@@ -42,7 +43,7 @@
                 android:id="@+id/tv_gif_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_margin="@dimen/dimen_8dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dimen_16sp"
