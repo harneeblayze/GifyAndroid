@@ -48,11 +48,13 @@ dependencies {
     implementation Libraries.loggingInterceptor
     implementation Libraries.daggerHilt
     kapt Libraries.hiltCompiler
+
     testImplementation TestLibraries.mockito
     testImplementation TestLibraries.kotlinJunit
     testImplementation TestLibraries.assertJ
-
     testImplementation TestLibraries.junit4
+    testImplementation TestLibraries.mockWebServer
+
     androidTestImplementation TestLibraries.testUnitExt
     androidTestImplementation TestLibraries.espresso
 }

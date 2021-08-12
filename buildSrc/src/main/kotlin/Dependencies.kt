@@ -1,7 +1,6 @@
 const val kotlinVersion = "1.5.10"
 object Libraries{
     private object Versions{
-        const val livedata = ""
         const val lottie = "3.0.7"
         const val glide = "4.11.0"
         const val ktx = "1.6.0"
@@ -23,6 +22,7 @@ object Libraries{
         const val paging = "2.1.2"
         const val navigation = "2.3.5"
         const val paging3 = "3.0.0-beta01"
+
 
     }
 
@@ -69,12 +69,14 @@ object TestLibraries {
         const val espressor = "3.4.0"
         const val mockito = "1.5.0"
         const val assertJ = "3.8.0"
+        const val mockWebServer = "4.7.2"
     }
     const val junit4 = "junit:junit:${Versions.junit4}"
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
     const val testUnitExt = "androidx.test.ext:junit:${Versions.testUnitExt}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressor}"
     const val mockito = "com.nhaarman:mockito-kotlin:${Versions.mockito}"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
     const val assertJ = "org.assertj:assertj-core:${Versions.assertJ}"
     const val kotlinJunit = "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
 }

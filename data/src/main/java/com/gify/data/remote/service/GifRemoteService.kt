@@ -1,7 +1,6 @@
 package com.gify.data.remote.service
 
 import com.gify.data.model.GifyRemoteModel
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
