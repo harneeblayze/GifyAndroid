@@ -2,6 +2,7 @@ package com.gify.data
 
 import com.gify.data.model.GifModel
 import com.gify.data.model.GifyRemoteModel
+import com.gify.data.model.Pagination
 import com.google.gson.Gson
 import com.google.gson.TypeAdapter
 
@@ -15,5 +16,11 @@ object GifData {
         return remoteGifAdapter.fromJson(
             FileReader.readFileFromResources("gif_response.json")
         )?.data ?: listOf()
+    }
+
+    fun provideRemoteGifsPaginationFromAssets(): Pagination {
+        return remoteGifAdapter.fromJson(
+            FileReader.readFileFromResources("gif_response.json")
+        ).pagination
     }
 }

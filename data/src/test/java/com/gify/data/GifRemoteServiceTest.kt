@@ -68,6 +68,16 @@ class GifRemoteServiceTest {
             GifData.provideRemoteGifsFromAssets().size,
             gifs.data.size
         )
+
+        assertEquals(
+            GifData.provideRemoteGifsFromAssets()[0],
+            gifs.data[0]
+        )
+
+        assertEquals(
+            GifData.provideRemoteGifsPaginationFromAssets(),
+            gifs.pagination
+        )
     }
 
     private fun setUpQueryValues() {
