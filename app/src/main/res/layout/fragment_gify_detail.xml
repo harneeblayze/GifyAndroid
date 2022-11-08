@@ -14,7 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <ImageView
+    <com.gify.theme.GifItemComponent
+        android:id="@+id/gif_detail"
+        tool:bar_anchor_isVisible="true"
+        android:minHeight="@dimen/dimen_300dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--<ImageView
         android:id="@+id/img_gify_detail"
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
@@ -36,7 +43,7 @@
         android:gravity="center"
         android:textSize="@dimen/dimen_16sp"
         android:textStyle="bold"
-        tools:text="" />
+        tools:text="" />-->
 
 
 

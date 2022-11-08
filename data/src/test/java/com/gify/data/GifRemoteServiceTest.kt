@@ -12,11 +12,13 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.test.fail
 
 
 @RunWith(JUnit4::class)
@@ -27,6 +29,7 @@ class GifRemoteServiceTest {
     private lateinit var query: String
     private lateinit var apiKey: String
     private lateinit var lang: String
+    private lateinit var badKey: String
 
     @Before
     fun setUp() {
@@ -80,10 +83,27 @@ class GifRemoteServiceTest {
         )
     }
 
+
+    @Test
+    fun `Assert invalid apikey returns data not found exception`() = runBlocking {
+
+        try {
+             gifRemoteService.searchGifs(
+                badKey, query, page = 1, lang
+            )
+
+            fail("Http 403 exception is thrown,this indicates an issue with the Api key")
+        }catch (e: HttpException){
+            assertEquals(HttpURLConnection.HTTP_FORBIDDEN, e.code())
+        }
+    }
+
+
     private fun setUpQueryValues() {
         query = DataFactory.query()
         lang = DataFactory.lang()
         apiKey = DataFactory.key()
+        badKey = DataFactory.badKey().toString()
     }
 
     private fun setUpGifRetrofitService() {
@@ -102,8 +122,12 @@ class GifRemoteServiceTest {
                         .setResponseCode(HttpURLConnection.HTTP_OK)
                         .setBody(FileReader.readFileFromResources("gif_response.json"))
                 }
+                "/gifs/search?api_key=${badKey}&q=${query}&offset=1&lang=${lang}" ->
+                    MockResponse().setResponseCode(HttpURLConnection.HTTP_FORBIDDEN)
 
-                else -> MockResponse().setResponseCode(HttpURLConnection.HTTP_NOT_FOUND)
+                else ->MockResponse().setResponseCode(HttpURLConnection.HTTP_NOT_FOUND)
+
+
 
             }
         }

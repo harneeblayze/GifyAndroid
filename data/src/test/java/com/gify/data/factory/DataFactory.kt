@@ -9,4 +9,8 @@ object DataFactory {
     fun key(): String = "apikey"
 
     fun lang():String = "en"
+
+    fun badKey():String? = null
+
+
 }

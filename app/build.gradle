@@ -43,10 +43,13 @@ android {
 
 dependencies {
     implementation project(':data')
-    implementation project(":core")
+    implementation project(':theme')
+    //implementation project(':domain')
     implementation Libraries.kotlinStdLib
     implementation Libraries.ktxCore
     implementation  Libraries.appCompat
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
     implementation Libraries.designLibary
     implementation Libraries.coroutinesAndroid
     implementation Libraries.coroutinesCore
@@ -67,6 +70,7 @@ dependencies {
     implementation Libraries.navigationFragmentKtx
     implementation Libraries.navigationUiKtx
     testImplementation TestLibraries.junit4
+    testImplementation TestLibraries.mockito
     androidTestImplementation TestLibraries.testUnitExt
     androidTestImplementation TestLibraries.espresso
 }

@@ -4,12 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import com.gify.data.model.GifModel
+import com.gify.domain.model.GifItem
 import com.gify.mobimeoappchallenge.databinding.ItemGifyBinding
 
-class GifyPagingAdapter(private val callback:(GifModel?)-> Unit): PagingDataAdapter<GifModel,
+class GifyPagingAdapter(private val callback:(GifItem)-> Unit): PagingDataAdapter<GifItem,
         GifyViewHolder>(GifyComparator()) {
     override fun onBindViewHolder(holder: GifyViewHolder, position: Int) {
-        holder.bindTo(getItem(position))
+        val currentItem = getItem(position)
+        if (currentItem!=null){
+            holder.bindTo(currentItem)
+        }
+        //holder.bindTo(getItem(position))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifyViewHolder {

@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -45,6 +43,8 @@ dependencies {
     implementation Libraries.retrofitGson
     implementation Libraries.retrofit
     implementation Libraries.okHttp
+    implementation Libraries.paging
+    implementation Libraries.paging3
     implementation Libraries.loggingInterceptor
     implementation Libraries.daggerHilt
     kapt Libraries.hiltCompiler

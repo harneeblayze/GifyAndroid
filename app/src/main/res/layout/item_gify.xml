@@ -13,7 +13,14 @@
     app:checkedIconTint="?colorSecondary"
     app:rippleColor="?colorPrimary">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.gify.theme.GifItemComponent
+        android:id="@+id/gif_component"
+        android:minHeight="@dimen/dimen_200dp"
+        android:layout_width="match_parent"
+        tools:src="@drawable/ic_launcher_foreground"
+        android:layout_height="wrap_content"/>
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -42,6 +49,6 @@
             tools:text="Happy face" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+-->
 
 </com.google.android.material.card.MaterialCardView>

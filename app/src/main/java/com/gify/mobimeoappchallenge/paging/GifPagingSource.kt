@@ -3,10 +3,8 @@ package com.gify.mobimeoappchallenge.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.gify.data.model.GifModel
-import com.gify.data.remote.networkResource.NetworkResource
 import com.gify.data.remote.service.GifRemoteService
 import com.gify.mobimeoappchallenge.BuildConfig
-import com.gify.mobimeoappchallenge.repository.GifRepository
 import retrofit2.HttpException
 import java.io.IOException
 

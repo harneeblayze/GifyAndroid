@@ -1,8 +1,9 @@
 package com.gify.mobimeoappchallenge.di
 
 
-import com.gify.mobimeoappchallenge.repository.GifRepository
-import com.gify.mobimeoappchallenge.repository.GifyRepositoryImpl
+import com.gify.data.repository.GifRepository
+import com.gify.repository.GifyRepositoryImpl
+
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

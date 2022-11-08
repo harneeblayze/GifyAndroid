@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GifItemComponent">
+        <attr name="gif_name" format="string"/>
+        <attr name="gif_url" format="reference"/>
+        <attr name="bar_anchor_isVisible" format="boolean|reference"/>
+        <attr name="bar_anchor_src" format="reference"/>
+        <!--<attr name="gif_name_text_size" format="dimension"/>-->
+    </declare-styleable>
+</resources>

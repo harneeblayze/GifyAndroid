@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.navArgs
-import com.gify.core.utils.getProgressDrawable
-import com.gify.core.utils.loadGif
-import com.gify.mobimeoappchallenge.R
+import com.gify.mobimeoappchallenge.utils.getProgressDrawable
+import com.gify.mobimeoappchallenge.utils.loadGif
 import com.gify.mobimeoappchallenge.databinding.FragmentGifyDetailBinding
-import com.gify.mobimeoappchallenge.databinding.FragmentGifyListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,8 +38,8 @@ class GifyDetailFragment : Fragment() {
         val url = arguments?.getString("url")
 
         binding.apply {
-            imgGifyDetail.loadGif(url, getProgressDrawable(requireContext()))
-            tvGifTitle.text = title?:"This Gif Has No Title"
+            /*imgGifyDetail.loadGif(url, getProgressDrawable(requireContext()))
+            tvGifTitle.text = title?:"This Gif Has No Title"*/
         }
 
         //sivGifImage.loadGif(gifModel?.images?.downsized_medium?.url)

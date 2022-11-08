@@ -12,18 +12,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
-import com.gify.core.utils.SpacesItemDecoration
-import com.gify.core.utils.getQueryTextChangeStateFlow
-import com.gify.mobimeoappchallenge.R
+import com.gify.mobimeoappchallenge.utils.SpacesItemDecoration
 import com.gify.mobimeoappchallenge.adapter.GifLoadStateAdapter
 import com.gify.mobimeoappchallenge.adapter.GifyPagingAdapter
 import com.gify.mobimeoappchallenge.databinding.FragmentGifyListBinding
 import com.gify.mobimeoappchallenge.viewmodel.GifViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -33,7 +28,7 @@ class GifyListFragment : Fragment() {
     private val viewModel: GifViewModel by viewModels()
     private lateinit var gifAdapter: GifyPagingAdapter
     private lateinit var binding: FragmentGifyListBinding
-    private var searchJob: Job? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +37,7 @@ class GifyListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentGifyListBinding.inflate(inflater, container, false)
         gifAdapter = GifyPagingAdapter {
-            findNavController().navigate(GifyListFragmentDirections.actionGifyListFragmentToGifyDetailFragment(it?.images?.downsizedMedium?.url, it?.title))
+            findNavController().navigate(GifyListFragmentDirections.actionGifyListFragmentToGifyDetailFragment(it.url, it.title))
         }
 
         return  binding.root
@@ -51,9 +46,10 @@ class GifyListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showUiState()
+        gifLoadingState()
         bindUItoAdapter()
         listenToQueryInSearchView()
+        observeGifs()
 
 
 
@@ -70,7 +66,7 @@ class GifyListFragment : Fragment() {
     }
 
 
-    private fun showUiState(){
+    private fun gifLoadingState(){
         gifAdapter.addLoadStateListener { loadState ->
             // show empty list
             val isListEmpty = loadState.refresh is LoadState.NotLoading && gifAdapter.itemCount == 0
@@ -124,16 +120,19 @@ class GifyListFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                searchJob?.cancel()
-                searchJob = lifecycleScope.launch {
-                    viewModel.searchGif(newText).collectLatest {
-                        gifAdapter.submitData(it)
-                    }
-                }
-
+                viewModel.queryChange(newText)
                 return true
             }
         })
+    }
+
+    private fun observeGifs(){
+        viewModel.gifs.observe(viewLifecycleOwner){
+            lifecycleScope.launch { it.data?.collectLatest {
+                gifAdapter.submitData(it)
+            } }
+
+        }
     }
 
 
