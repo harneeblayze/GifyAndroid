@@ -9,7 +9,7 @@
     tools:context=".view.fragment.GifyDetailFragment">
 
     <ImageView
-        android:layout_margin="@dimen/dimen_14dp"
+        android:layout_margin="@dimen/dimen_unit_1_75"
         android:src="@drawable/small_anchor_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -17,8 +17,11 @@
     <com.gify.theme.GifItemComponent
         android:id="@+id/gif_detail"
         tool:bar_anchor_isVisible="true"
-        android:minHeight="@dimen/dimen_300dp"
+        tool:bar_anchor_src="@drawable/small_anchor_bar"
         android:layout_width="match_parent"
+        tool:gif_url_min_height="@dimen/dimen_unit_50"
+        android:minHeight="@dimen/dimen_unit_50"
+        tools:src="@drawable/ic_launcher_foreground"
         android:layout_height="wrap_content"/>
 
     <!--<ImageView

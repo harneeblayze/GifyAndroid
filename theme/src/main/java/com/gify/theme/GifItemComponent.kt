@@ -45,6 +45,14 @@ class GifItemComponent @JvmOverloads constructor(
             gifItemComponentBinding.anchorBar.setImageDrawable(value)
         }
 
+    var gifImageMinHeight:Int? = null
+        set(value) {
+            field = value
+            value?.let { gifItemComponentBinding.sivGifImage.minimumHeight = it }
+
+        }
+
+
 
 
     init {
@@ -56,6 +64,7 @@ class GifItemComponent @JvmOverloads constructor(
                     anchorBarVisible =
                         getBoolean(R.styleable.GifItemComponent_bar_anchor_isVisible, false)
                     anchorBarDrawable = getDrawable(R.styleable.GifItemComponent_bar_anchor_src)
+                    gifImageMinHeight = getDimensionPixelSize(R.styleable.GifItemComponent_gif_url_min_height,0)
 
 
 

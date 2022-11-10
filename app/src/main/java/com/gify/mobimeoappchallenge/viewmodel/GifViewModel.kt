@@ -7,6 +7,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import androidx.paging.map
 import com.gify.data.remote.networkResource.NetworkResource
 import com.gify.domain.model.GifItem
@@ -51,7 +52,7 @@ class GifViewModel @Inject constructor(
                         //stop progress
                         val res = response.map {
                                 it.map {  res -> GifItem(title = res.title, url = res.images.downsizedMedium.url ) }
-                        }
+                        }.cachedIn(viewModelScope)
                         emit(NetworkResource.Success(res))
                     }catch (ex:Exception){
                         emit(NetworkResource.Error(ex.toString()))

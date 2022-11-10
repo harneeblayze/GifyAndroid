@@ -5,8 +5,8 @@
     android:id="@+id/cv_gif_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dimen_8dp"
-    android:layout_marginTop="@dimen/dimen_16dp"
+    android:layout_margin="@dimen/dimen_unit_1"
+    android:layout_marginTop="@dimen/dimen_unit_2"
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
@@ -15,7 +15,8 @@
 
     <com.gify.theme.GifItemComponent
         android:id="@+id/gif_component"
-        android:minHeight="@dimen/dimen_200dp"
+        android:minHeight="@dimen/dimen_unit_25"
+        app:gif_url_min_height="@dimen/dimen_unit_25"
         android:layout_width="match_parent"
         tools:src="@drawable/ic_launcher_foreground"
         android:layout_height="wrap_content"/>

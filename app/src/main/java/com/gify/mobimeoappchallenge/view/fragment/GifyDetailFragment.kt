@@ -38,6 +38,8 @@ class GifyDetailFragment : Fragment() {
         val url = arguments?.getString("url")
 
         binding.apply {
+            gifDetail.setGifUrl(url)
+            gifDetail.gifTitle = title?:"This Gif Has No Title"
             /*imgGifyDetail.loadGif(url, getProgressDrawable(requireContext()))
             tvGifTitle.text = title?:"This Gif Has No Title"*/
         }

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimen_16dp">16dp</dimen>
-    <dimen name="dimen_14dp">14dp</dimen>
-    <dimen name="dimen_0dp">0dp</dimen>
-    <dimen name="dimen_8dp">8dp</dimen>
-    <dimen name="dimen_200dp">200dp</dimen>
-    <dimen name="dimen_16sp">16sp</dimen>
-    <dimen name="dimen_14sp">14sp</dimen>
-    <dimen name="dimen_12sp">12sp</dimen>
-    <dimen name="dimen_32sp">32sp</dimen>
-    <dimen name="dimen_300dp">400dp</dimen>
-    <dimen name="dimen_20dp">20dp</dimen>
-    <dimen name="dimen_7dp">7dp</dimen>
-    <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_unit_2">16dp</dimen>
+    <dimen name="dimen_unit_1_75">14dp</dimen>
+    <dimen name="dimen_unit_0">0dp</dimen>
+    <dimen name="dimen_unit_1">8dp</dimen>
+    <dimen name="dimen_unit_25">200dp</dimen>
+    <dimen name="dimen_text_unit_2">16sp</dimen>
+    <dimen name="dimen_text_unit_1_75">14sp</dimen>
+    <dimen name="dimen_text_unit_1_5">12sp</dimen>
+    <dimen name="dimen_text_unit_4">32sp</dimen>
+    <dimen name="dimen_unit_50">400dp</dimen>
+    <dimen name="dimen_unit_2_5">20dp</dimen>
 </resources>

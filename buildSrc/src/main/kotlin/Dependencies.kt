@@ -1,4 +1,4 @@
-const val kotlinVersion = "1.5.10"
+const val kotlinVersion = "1.5.31"
 object Libraries{
     private object Versions{
         const val lottie = "3.0.7"
@@ -13,19 +13,25 @@ object Libraries{
         const val appcompat = "1.3.0"
         const val constraintLayout = "2.0.4"
         const val retrofit = "2.9.0"
-        const val interceptor = "3.12.1"
+        const val interceptor = "4.9.2"
         const val hilt = "2.35"
         const val palette = "28.0.0"
         const val coroutines_lifecycle = "2.4.0-alpha01"
-        const val okHttp = "3.12.1"
+        const val okHttp = "4.9.2"
         const val moshi = "1.9.3"
         const val paging = "2.1.2"
         const val navigation = "2.3.5"
         const val paging3 = "3.0.0-beta01"
+        const val androidxCompose = "1.1.1"
+        const val androidxComposeCompiler = "1.1.0-beta03"
+        const val androidxComposeConstraintLayout = "1.0.1"
+        const val androidxComposeNavigation = "2.5.1"
+        const val androidxActivityCompose = "1.3.0"
+        const val androidxViewmodelCompose = "1.0.0-alpha7"
+        const val coil = "2.1.0"
 
 
     }
-
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacy_support}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.jetpack}"
@@ -58,6 +64,21 @@ object Libraries{
     const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     const val supportPalette = "com.android.support:palette-v7${Versions.palette}"
+    const val androidxComposeAnimation = "androidx.compose.animation:animation:${Versions.androidxCompose}"
+    const val androidxComposeFoundation = "androidx.compose.foundation:foundation:${Versions.androidxCompose}"
+    const val androidxComposeFoundationLayout = "androidx.compose.foundation:foundation-layout:${Versions.androidxCompose}"
+    const val androidxComposeMaterial = "androidx.compose.material:material:${Versions.androidxCompose}"
+    const val androidxComposeMaterialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.androidxCompose}"
+    const val androidxComposeRuntime = "androidx.compose.runtime:runtime:${Versions.androidxCompose}"
+    const val androidxComposeRuntimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.androidxCompose}"
+    const val androidxComposeUi = "androidx.compose.ui:ui:${Versions.androidxCompose}"
+    const val androidxComposeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.androidxCompose}"
+    const val androidxComposeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.androidxCompose}"
+    const val androidxComposeConstraintLayout = "androidx.constraintlayout:constraintlayout-compose:${Versions.androidxComposeConstraintLayout}"
+    const val androidxLifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.androidxViewmodelCompose}"
+    const val androidxNavigationCompose = "androidx.navigation:navigation-compose:${Versions.androidxComposeNavigation}"
+    const val coilBase = "io.coil-kt:coil:${Versions.coil}"
+    const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
 
 }
 
