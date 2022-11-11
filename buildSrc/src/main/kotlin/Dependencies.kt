@@ -21,7 +21,7 @@ object Libraries{
         const val moshi = "1.9.3"
         const val paging = "2.1.2"
         const val navigation = "2.3.5"
-        const val paging3 = "3.0.0-beta01"
+        const val paging3 = "3.2.0-alpha01"
         const val androidxCompose = "1.1.1"
         const val androidxComposeCompiler = "1.1.0-beta03"
         const val androidxComposeConstraintLayout = "1.0.1"
@@ -29,6 +29,8 @@ object Libraries{
         const val androidxActivityCompose = "1.3.0"
         const val androidxViewmodelCompose = "1.0.0-alpha7"
         const val coil = "2.1.0"
+        const val composeNav = "2.4.2"
+
 
 
     }
@@ -72,6 +74,7 @@ object Libraries{
     const val androidxComposeRuntime = "androidx.compose.runtime:runtime:${Versions.androidxCompose}"
     const val androidxComposeRuntimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.androidxCompose}"
     const val androidxComposeUi = "androidx.compose.ui:ui:${Versions.androidxCompose}"
+    const val composeNavigation =  "androidx.navigation:navigation-compose:${Versions.composeNav}"
     const val androidxComposeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.androidxCompose}"
     const val androidxComposeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.androidxCompose}"
     const val androidxComposeConstraintLayout = "androidx.constraintlayout:constraintlayout-compose:${Versions.androidxComposeConstraintLayout}"

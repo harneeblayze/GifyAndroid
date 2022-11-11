@@ -1,5 +1,6 @@
 package com.gify.data.model
 
+import com.gify.domain.model.GifItem
 import com.google.gson.annotations.SerializedName
 
 data class GifyRemoteModel(
@@ -32,3 +33,13 @@ data class Images(
 data class DownsizedMedium(
     var url: String
 )
+
+/*fun GifyRemoteModel.toGifItem(): GifItem {
+   return data.map {
+        GifItem(
+            title = it.title,
+            url = it.images.downsizedMedium.url
+        )
+    }
+
+}*/

@@ -2,3 +2,5 @@ rootProject.name = "MobimeoAppChallenge"
 include ':app'
 include ':data'
 include ':theme'
+include ':theme-compose'
+include ':gifycomposeapp'

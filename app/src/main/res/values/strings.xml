@@ -5,4 +5,5 @@
     <string name="retry">Retry</string>
     <string name="empty_state_text">Save Astronaut by Searching for a Gif</string>
     <string name="title_of_gif">Title of Gif:</string>
+    <string name="title_activity_gif_compose">GifComposeActivity</string>
 </resources>

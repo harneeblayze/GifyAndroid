@@ -5,13 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.paging.*
 
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
-import androidx.paging.map
 import com.gify.data.remote.networkResource.NetworkResource
 import com.gify.domain.model.GifItem
 import com.gify.data.repository.GifRepository
+import com.gify.mobimeoappchallenge.paging.GifPagingSource
+import com.gify.mobimeoappchallenge.paging.NETWORK_PAGE_SIZE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GifViewModel @Inject constructor(
-    private var repository: GifRepository
+    private val repository: GifRepository
 ): ViewModel() {
 
     private val query by lazy { MutableSharedFlow<String>(1) }
@@ -48,12 +48,19 @@ class GifViewModel @Inject constructor(
                 }else{
                     emit(NetworkResource.Loading(null))
                     try {
-                        val response = repository.getSearchResultStream(query)
+                      val response =  Pager(
+                            config = PagingConfig(
+                                pageSize = NETWORK_PAGE_SIZE,
+                                enablePlaceholders = false
+                            ),
+                            pagingSourceFactory = { GifPagingSource(repository, query) }
+                        ).flow
+                        //val response = repository.getSearchResultStream(query)
                         //stop progress
-                        val res = response.map {
+                        /*val res = response.map {
                                 it.map {  res -> GifItem(title = res.title, url = res.images.downsizedMedium.url ) }
-                        }.cachedIn(viewModelScope)
-                        emit(NetworkResource.Success(res))
+                        }.cachedIn(viewModelScope)*/
+                        emit(NetworkResource.Success(response))
                     }catch (ex:Exception){
                         emit(NetworkResource.Error(ex.toString()))
                     }
@@ -61,5 +68,70 @@ class GifViewModel @Inject constructor(
             }
 
         }.distinctUntilChanged().asLiveData()
+
+    /*val composeGifs: Flow<Flow<PagingData<GifItem>>> = query
+        .debounce(500L)
+        .flowOn(Dispatchers.IO)
+        .flatMapLatest { query ->
+            flow<Flow<PagingData<GifItem>>>{
+                if (query.isEmpty()){
+                    //emit("")
+                    //no data
+                }else{
+                    //emit(NetworkResource.Loading(null))
+                    //loading
+                    try {
+                        val response =  Pager(
+                            config = PagingConfig(
+                                pageSize = NETWORK_PAGE_SIZE,
+                                enablePlaceholders = false
+                            ),
+                            pagingSourceFactory = { GifPagingSource(repository, query) }
+                        ).flow.cachedIn(viewModelScope)
+                        //val response = repository.getSearchResultStream(query)
+                        //stop progress
+                        *//*val res = response.map {
+                                it.map {  res -> GifItem(title = res.title, url = res.images.downsizedMedium.url ) }
+                        }.cachedIn(viewModelScope)*//*
+                       emit(response)
+                    }catch (ex:Exception){
+                        ex.toString()
+                        //emit(NetworkResource.Error(ex.toString()))
+                    }
+                }
+            }
+
+        }.distinctUntilChanged()*/
+
+    /*//compose impl
+    val gifPager = Pager(PagingConfig(pageSize = NETWORK_PAGE_SIZE)){
+val usersPager = Pager(PagingConfig(pageSize = 20)) {
+        UsersDataSource(repo)
+    }.flow.cachedIn(viewModelScope)
+        GifPagingSource(repository,query)
+    }*/
+
+    val composeGifs =
+        Pager(
+            config = PagingConfig(
+                pageSize = NETWORK_PAGE_SIZE,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { GifPagingSource(repository, "ha") }
+        ).flow.cachedIn(viewModelScope)
+        /*query
+            .debounce(500L)
+            .flowOn(Dispatchers.IO)
+            .flatMapLatest{
+                query ->
+                Pager(
+                    config = PagingConfig(
+                        pageSize = NETWORK_PAGE_SIZE,
+                        enablePlaceholders = false
+                    ),
+                    pagingSourceFactory = { GifPagingSource(repository, query) }
+                ).flow.cachedIn(viewModelScope)
+            }*/
+
 
 }
