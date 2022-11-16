@@ -9,13 +9,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.navigation.compose.rememberNavController
+import com.gify.mobimeoappchallenge.composenavigation.NavGraph
 import com.gify.mobimeoappchallenge.viewmodel.GifViewModel
 import com.gify.theme_compose.components.AppBar
+import com.gify.theme_compose.components.ErrorItem
+import com.gify.theme_compose.components.SearchView
 import com.gify.theme_compose.composethemevalues.MobimeoAppChallengeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,9 +37,11 @@ class GifComposeActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //Greeting("Android")
-                    GifListScreen(viewmodel = viewModel)
-                    //GifComposeContent(viewModel)
+                    /*val navController = rememberNavController()
+                    NavGraph(navController = navController, viewModel)*/
+                    //EmptyGifState()
+                    //GifListScreen(viewmodel = viewModel)
+                    GifComposeContent(viewModel)
                 }
             }
         }
@@ -45,9 +52,20 @@ class GifComposeActivity : ComponentActivity() {
 
 @Composable
 fun GifComposeContent(viewModel: GifViewModel){
+    /*val textState = remember { mutableStateOf(TextFieldValue("")) }
+    viewModel.queryChange(textState.value.text)*/
     Column() {
-        AppBar(title = "Gify Compose")
-        GifListScreen(viewmodel = viewModel )
+        TopAppBar(
+            title = {
+                Text(text = "Browse Gif List")
+            }
+        )
+        /*SearchView(state = textState)
+        if (textState.value.text.isBlank()){
+        EmptyGifState()}else{
+            GifListScreen(viewmodel = viewModel )
+        }*/
+        GifListScreen(viewModel = viewModel)
     }
 
 }

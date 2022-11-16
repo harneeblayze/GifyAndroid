@@ -5,42 +5,119 @@ import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.gify.mobimeoappchallenge.viewmodel.GifViewModel
-import androidx.paging.compose.items
-import com.gify.theme_compose.components.ComposeGifItemComponent
-import com.gify.theme_compose.components.ErrorItem
-import com.gify.theme_compose.components.GifItemModel
-import com.gify.theme_compose.components.LoadingItem
+import com.gify.theme_compose.components.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun GifListScreen(viewmodel:GifViewModel){
-    val gifs = viewmodel.composeGifs.collectAsLazyPagingItems()
+fun GifListScreen(
+    /*navController: NavController,*/
+    viewModel: GifViewModel,
+    state: SearchState = rememberSearchState()
+) {
 
-    LazyVerticalGrid(cells = GridCells.Fixed(2)){
+    val gifs = viewModel.composeGifs(state.query.text).collectAsLazyPagingItems()
 
-        items(gifs){ gif ->
-            ComposeGifItemComponent(model =
-            GifItemModel(gif?.url, gif?.title), onClick = {})
-
-        }
-        when (gifs.loadState.append) {
-            is LoadState.NotLoading -> Unit
-            LoadState.Loading -> {
-                item { LoadingItem() }
-            }
-            is LoadState.Error -> {
-                item {
-                    ErrorItem(message = (gifs.loadState.append as LoadState.Error).error.message.toString())
-                }
-            }
-        }
+    //
+    val query = remember{
+        state.query
     }
+
+    Column(Modifier.fillMaxSize()) {
+
+        SearchView(
+            query = query,
+            onQueryChange = {
+                state.query = it
+            },
+            onSearchFocusChange = { state.focused = it },
+            onClearQuery = { state.query = TextFieldValue("") },
+            searching = state.searching,
+            focused = state.focused,
+        )
+        LaunchedEffect(state.query.text) {
+                state.searching = true
+                //delay(100)
+                state.searchResults = flowOf(gifs)
+                state.searching = false
+        }
+
+        when (state.searchDisplay) {
+            SearchDisplay.InitialResults -> {
+                //state.searching = false
+                EmptyGifState()
+            }
+            SearchDisplay.NoResults -> {
+                //state.searching = false
+                EmptyGifState()
+            }
+
+            SearchDisplay.Loading -> {
+                state.searching = true
+                LoadingItem()
+            }
+
+            SearchDisplay.Results -> {
+
+                LazyVerticalGrid(cells = GridCells.Fixed(2)) {
+
+                    items(gifs) { gif ->
+                        Card(
+                            shape = RoundedCornerShape(8.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    top = 16.dp,
+                                    start = 16.dp, end = 16.dp, bottom = 8.dp
+                                )
+                        ) {
+                            ComposeGifItemComponent(model =
+                            GifItemModel(gif?.url, gif?.title, gifUrlMinHeight = 200),
+                                onClick = {})
+                        }
+
+
+                    }
+                    when (gifs.loadState.append) {
+                        is LoadState.NotLoading -> Unit
+                        LoadState.Loading -> {
+                            item { LoadingItem() }
+                        }
+                        is LoadState.Error -> {
+                            item {
+                                ErrorItem(message = (gifs.loadState.append as LoadState.Error).error.message.toString())
+                            }
+                        }
+                    }
+                }
+
+            }
+            else -> {
+                LoadingItem()
+            }
+        }
+
+    }
+
+
 }
 
 /*

@@ -82,6 +82,9 @@ object Libraries{
     const val androidxNavigationCompose = "androidx.navigation:navigation-compose:${Versions.androidxComposeNavigation}"
     const val coilBase = "io.coil-kt:coil:${Versions.coil}"
     const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
+    const val coilComposeGif = "io.coil-kt:coil-gif:${Versions.coil}"
+
+
 
 }
 
