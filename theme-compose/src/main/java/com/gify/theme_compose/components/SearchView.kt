@@ -66,14 +66,19 @@ fun SearchView(/*state: MutableState<TextFieldValue>,*/
                 }
                 query.text.isNotEmpty() -> {
                     IconButton(onClick = onClearQuery) {
-                        Icon(
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .padding(horizontal = 6.dp)
+                                .size(16.dp)
+                        )
+                        /*Icon(
                             Icons.Default.Close,
                             contentDescription = "",
                             tint = Color.DarkGray,
                             modifier = Modifier
                                 .padding(15.dp)
                                 .size(24.dp)
-                        )
+                        )*/
                         //Icon(imageVector = Icons.Filled.Cancel, contentDescription = null)
                     }
                 }

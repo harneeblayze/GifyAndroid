@@ -76,10 +76,6 @@ fun ComposeGifItemComponent(
                         height = if (model.gifUrlMinHeight != null)
                             model.gifUrlMinHeight.dp else defaultMinHeight
                     )
-                    /*.defaultMinSize(
-                        minHeight = if (model.gifUrlMinHeight != null)
-                            model.gifUrlMinHeight.dp else defaultMinHeight
-                    )*/
                     .constrainAs(gifUrlRef) {
                         top.linkTo(parent.top)
                         start.linkTo(parent.start)
